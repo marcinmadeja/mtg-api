@@ -1,0 +1,24 @@
+.btn {
+  height: $input-height;
+  min-width: 110px;
+  padding: 0 15px;
+
+  background: $color-dark;
+  border: 1px solid $color-dark;
+
+  color: $color-light;
+}
+
+.btn-expand {
+  @extend .btn;
+
+  min-width: auto;
+
+  &::before {
+    @include fontAwesome("\f196");
+    display: block;
+  }
+  
+  
+  font-size: 20px;
+}

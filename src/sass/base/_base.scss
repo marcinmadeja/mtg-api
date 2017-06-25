@@ -1,0 +1,30 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+
+
+html {
+  box-sizing: border-box;
+
+  color: $color-font-base;
+  font-family: $primary-font;
+  font-size: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/**
+ * Basic styles for links
+ */
+a {
+
+  &:hover {
+  }
+}
+
+.container {
+  @include container;
+}

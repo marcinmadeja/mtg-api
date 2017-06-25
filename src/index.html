@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <title>MTG APP</title>
+</head>
+<body>
+
+<header class="l-header">
+  <div class="top-bar">
+    <img src="img/logo-magic.png" alt="logo" class="top-bar__logo">
+  </div>
+
+  <div class="l-header__bg"></div>
+</header>
+
+<div class="search">
+  <form action="#" class="search__form js__search-form">
+    <div class="search__section">
+      <div class="search__item--extend search__item mtg-field__name-wrap">
+        <input type="text" class="f-input--full f-input" name="name">
+      </div>
+
+      <div class="search__item">
+        <button class="js__search-btn btn" type="button">szukaj</button>
+      </div>
+
+      <div class="search__item">
+        <button class="btn-expand" type="button"></button>
+      </div>
+    </div>
+
+    <div class="search__section">
+      <div class="search__item--card search__item">
+        <span class="search__name">Search Card:</span>
+
+        <div class="search__check-wrap">
+          <input class="f-check" type="radio" name="search-card" value="name" id="search-card-name" checked>
+          <label class="f-check__label" for="search-card-name">Name</label>
+        </div>
+
+        <div class="search__check-wrap">
+          <input class="f-check" type="radio" name="search-card" value="type" id="search-card-types">
+          <label class="f-check__label" for="search-card-types">Types</label>
+        </div>
+
+        <div class="search__check-wrap">
+          <input class="f-check" type="radio" name="search-card" value="text" id="search-card-text">
+          <label class="f-check__label" for="search-card-text">Text</label>
+        </div>                
+      </div>
+
+      <div class="search__item--colors search__item">
+        <span class="search__name">Search by Color:</span>
+          <div class="search__check-wrap">
+            <input class="f-check" type="checkbox" name="colorIdentity" value="W" id="colorIdentity-w">
+            <label class="f-check__label" for="colorIdentity-w"><img src="img/white-mana.png" alt="" class="search__color-img"></label>
+          </div>
+
+          <div class="search__check-wrap">
+            <input class="f-check" type="checkbox" name="colorIdentity" value="U" id="colorIdentity-u">
+            <label class="f-check__label" for="colorIdentity-u"><img src="img/blue-mana.png" alt="" class="search__color-img"></label>
+          </div>
+
+          <div class="search__check-wrap">
+            <input class="f-check" type="checkbox" name="colorIdentity" value="B" id="colorIdentity-b">
+            <label class="f-check__label" for="colorIdentity-b"><img src="img/black-mana.png" alt="" class="search__color-img"></label>
+          </div>
+
+          <div class="search__check-wrap">
+            <input class="f-check" type="checkbox" name="colorIdentity" value="R" id="colorIdentity-r">
+            <label class="f-check__label" for="colorIdentity-r"><img src="img/red-mana.png" alt="" class="search__color-img"></label>
+          </div>
+
+          <div class="search__check-wrap">
+            <input class="f-check" type="checkbox" name="colorIdentity" value="G" id="colorIdentity-green">
+            <label class="f-check__label" for="colorIdentity-green"><img src="img/green-mana.png" alt="" class="search__color-img"></label>
+          </div>                                       
+        </div>
+
+      </div> <!-- search base  -->
+  </form>
+</div>
+
+<div class="cards-list container"></div>
+
+<footer class="l-footer">
+  
+</footer>
+
+</body>
+</html>

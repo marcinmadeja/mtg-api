@@ -1,0 +1,55 @@
+.search {
+  padding: em(6px) 0;
+
+  text-align: center;
+
+  &__form {
+    background: $color-lighter;
+    display: inline-block;
+    padding: em(25px) em(30px);
+    transform: translate(0, -95px);
+  }
+
+  &__input-name {
+    width: em(576px);
+  }
+
+  &__name {
+      margin-right: em(18px, 19px);
+
+      font-size: rem(19px);
+      font-weight: 500;
+  }
+
+  &__section {
+    @include flex-center;
+
+    &:not(:last-child) {
+      margin-bottom: em(22px);
+    }
+  }
+
+  &__item {
+
+    &:not(:last-child) {
+      margin-right: em(24px);
+    }
+
+    &--card,
+    &--colors {
+      @include flex-center;
+    }
+
+    &--extend {
+      flex: 1;
+    }
+  }
+
+  &__check-wrap {
+    @include flex-center;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+}

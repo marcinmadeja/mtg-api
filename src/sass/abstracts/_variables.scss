@@ -1,0 +1,64 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+
+/// base font size for html. Needed for em and rem
+$base-font-size: 16px;
+
+/// Regular font family
+$primary-font: 'Ubuntu', sans-serif;
+
+$color-dark: #29333D;
+$color-light: #fff;
+$color-dark-lighter: #838484;
+$color-border-light: #d5d9dd;
+$color-lighter: #efefef;
+
+$color-font-lighter: #b9bfc6;
+$color-font-base: #101010;
+
+$brand-color: #e72613;
+$brand-color-second: #FAB215;
+
+$input-height: 38px;
+
+/// Container's maximum width
+/// @type Length
+$max-width: 1180px !default;
+
+
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '' !default;
+
+$susy: (
+  columns: 12,
+  container: 1200px,
+  gutters: 0.418,
+  math: fluid,
+  output: float
+);
+
+$breakpoint-to-ems: true;
+
+// standard breakpoint
+$xs-small-phone-only: max-width 359px;
+$xs-small-phone-only-up: 360px;
+$small-phone-only-up: 460px;
+$small-phone-only: max-width 459px;
+$phone-only: max-width 599px;
+$phone-only-up: 600px;
+$between-phone-table: 600px 991px;
+$between-portrait-landscape: 768px 991px;
+$tablet-portrait: max-width 767px;
+$tablet-landscape: max-width 991px;
+$tablet-landscape-up: 992px;
+$desktop-small: max-width 1099px;
+$between-desktop-small-phone: 600px 1100px;
+$desktop-small-up: min-width 1100px;
+$desktop: max-width 1260;
+$big-desktop: max-width 1800px;

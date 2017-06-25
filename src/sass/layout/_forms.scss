@@ -1,0 +1,13 @@
+.f-check {
+  margin-right: em(7px);
+}
+
+.f-input {
+  height: $input-height;
+  border: 1px solid $color-border-light;
+  padding: 0 em(15px); 
+
+  &--full {
+    width: 100%;
+  } 
+}

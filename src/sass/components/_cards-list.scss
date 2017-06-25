@@ -1,0 +1,70 @@
+.cards-list {
+  &__img-wrap {
+    width: em(223px);
+    height: em(310px);
+  }
+
+  &__item {
+    @include span(3);
+
+    margin-bottom: em(40px);
+    cursor: pointer;
+
+    &:nth-child(4n) {
+      @include span(3 last);
+    }
+
+    &:nth-child(4n+1) {
+      clear: both;
+    }
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__header {
+    margin: em(10px) 0;
+  }
+
+  &__name {
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__type {
+    font-size: rem(14px);
+    font-weight: 500;    
+  }
+
+  &__set-rarity {
+    color: $color-dark-lighter;
+    font-size: rem(14px);
+  }
+
+  &__attribute-mana {
+    width: em(17px);
+    margin-left: em(3px);
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  &__mana-total {
+    display: inline-block;
+    vertical-align: bottom;
+
+    color: $color-dark-lighter;
+    font-size: rem(15px);
+  }
+
+  &__text {
+    font-size: rem(15px);
+  }
+
+  &__attribute {
+    width: em(17px);
+    margin-right: 1px;
+    vertical-align: bottom;
+  }
+}

@@ -1,0 +1,16 @@
+.l-header {
+  &__bg {
+    padding-bottom: 30%;
+    background: url('../img/header-bg.jpg') top center/cover;
+  }
+}
+
+.top-bar {
+  background: $color-dark;
+  padding: em(5px) em(25px);
+
+  &__logo {
+    width: em(160px);
+    display: block;
+  }
+}
