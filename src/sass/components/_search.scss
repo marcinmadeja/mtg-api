@@ -1,13 +1,10 @@
 .search {
-  padding: em(6px) 0;
-
   text-align: center;
 
   &__form {
     background: $color-lighter;
     display: inline-block;
     padding: em(25px) em(30px);
-    transform: translate(0, -95px);
   }
 
   &__input-name {

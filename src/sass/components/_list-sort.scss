@@ -1,0 +1,43 @@
+.list-options {
+  margin: em(30px) 0;
+
+  &__container {
+    @include flex-center;
+
+    padding-top: em(10px);
+    padding-bottom: em(10px);
+
+    background: $color-lighter;
+  }
+}
+
+.list-grid {
+  @extend %reset-list;
+
+  margin-right: auto;
+
+  &__item {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__btn {
+    @extend %reset-btn;
+  }
+
+  &__icon {
+    color: $color-dark;
+    font-size: rem(21px);
+  }
+}
+
+.list-sort {
+  padding: em(2px) em(5px);
+  font-size: rem(15px);
+
+  &__label {
+    margin-right: em(13px);
+
+    font-weight: 500;
+  }
+}

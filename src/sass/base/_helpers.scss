@@ -89,6 +89,17 @@
   list-style: none;
 }
 
+%reset-btn {
+  background: none;
+  border: none;
+  outline: 0;
+
+  &:visited {
+    outline: 0;
+  }
+}
+
+
 %inline-block-element {
   display: inline-block;
   vertical-align: middle;

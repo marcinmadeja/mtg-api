@@ -86,6 +86,31 @@
   </form>
 </div>
 
+<div class="list-options">
+  <div class="list-options__container container">
+    <ul class="list-grid">
+      <li class="list-grid__item"><button class="list-grid__btn"><i class="list-grid__icon fa fa-th" aria-hidden="true"></i></button></li>
+      <li class="list-grid__item"><button class="list-grid__btn"><i class="list-grid__icon fa fa-th-large" aria-hidden="true"></i></button></li>
+      <li class="list-grid__item"><button class="list-grid__btn"><i class="list-grid__icon fa fa-th-list" aria-hidden="true"></i></button></li>
+    </ul>
+
+    <div class="list-sort">
+      <span class="list-sort__label">Sort by:</span>
+      <select class="list-sort js-sort">
+        <option class="list-sort__item" value="">standard</option>
+        <option class="list-sort__item" value="name" data-sort-type="asc">Name, A to Z</option>
+        <option class="list-sort__item" value="name" data-sort-type="desc">Name, Z to A</option>
+        <option class="list-sort__item" value="power" data-sort-type="asc">Power, low to high</option>
+        <option class="list-sort__item" value="power" data-sort-type="desc">Power, high to low</option>
+        <option class="list-sort__item" value="toughness" data-sort-type="asc">Toughness, low to high</option>
+        <option class="list-sort__item" value="toughness" data-sort-type="desc">Toughness, high to low</option>
+        <option class="list-sort__item" value="cmc" data-sort-type="asc">Mana cost, low to high</option>
+        <option class="list-sort__item" value="cmc" data-sort-type="desc">Mana cost, high to low</option>
+      </select>
+    </div>
+  </div>
+</div>
+
 <div class="cards-list container"></div>
 
 <footer class="l-footer">

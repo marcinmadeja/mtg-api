@@ -6,6 +6,7 @@ const dom = {
   cardsList: document.querySelector('.cards-list'),
   searchName: form.querySelectorAll('[name="search-card"]'),
   searchColorIdentity: form.querySelectorAll('[name="colorIdentity"]'),
+  sort: document.querySelector('.js-sort'),
 };
 
 export default dom;
