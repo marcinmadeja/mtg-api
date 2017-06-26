@@ -16,21 +16,6 @@ const listTemplates = (function () {
     return returnSimpleTemplate(cards);
   }
 
-  function manaCost(string) {
-    if (!string) return '';
-
-    const regex = /(\{([^)]{1,3})\})/g;
-
-    let matchNumber = parseInt(regex.exec(string)[2], 10);
-    let manaValue = matchNumber !== undefined ? matchNumber : 1;
-
-    while (matchNumber = regex.exec(string)) {
-      manaValue++;
-    }
-
-    return manaValue ? `(${manaValue})` : '';
-  }
-
   function replaceTextShorts(string, shortClass = 'cards-list__attribute') {
     if (!string) return '';
 
@@ -68,7 +53,7 @@ const listTemplates = (function () {
           <header class="cards-list__header">
             <h4 class="cards-list__name">${card.name}</h4>
             <span class="cards-list__mana">${replaceTextShorts(card.manaCost, 'cards-list__attribute-mana')}</span>
-            <span class="cards-list__mana-total">${manaCost(card.manaCost)}</span>
+            <span class="cards-list__mana-total">${card.cmc ? `(${card.cmc})` : ''}</span>
 
             <div class="cards-list__type">${card.type}</div>
             <div class="cards-list__set-rarity">${card.setName} - ${card.rarity}</div>

@@ -4,9 +4,12 @@ const sort = (function () {
   function sortElement(select) {
     const field = select.value || '';
     const sortType = select.selectedOptions[0].dataset.sortType || 'asc';
-    const currentCards = mtgApi.getCurrentCards();
+    const currentCards = [...mtgApi.getCurrentCards()];
+
+    console.log('field.length', field.length);
 
     if (!field.length) {
+      console.table(currentCards);
       return currentCards;
     }
 
