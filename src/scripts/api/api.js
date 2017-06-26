@@ -1,33 +1,38 @@
+import apiSettings from './settings';
 import linkGenerator from './link-generator';
-import dom from './dom';
 import listTemplates from './list-templates';
 import pagination from './pagination';
 import sort from './sort';
 
 const mtgApi = (function () {
-  let currentCards;
+  const dom = apiSettings.dom;
 
   function createList(data) {
     const cards = data || [];
+    const cardList = dom.cardsList;
+
     if (!cards.length) {
-      dom.cardsList.innerHTML = '<p>brak kart</p>';
+      cardList.innerHTML = '<p>brak kart</p>';
       return false;
     }
 
-    dom.cardsList.innerHTML = listTemplates.generateTemplate(cards);
+    cardList.innerHTML = listTemplates.generateTemplate(cards);
   }
 
   function listPromise(url) {
     const postsPromise = fetch(url);
+    const sortSelect = dom.sort;
 
     const list = postsPromise
       .then(data => { 
         pagination.setHeaderSettings(data.headers);
+        pagination.createPagination();
         return data.json(); 
       })
       .then(data => {
-        currentCards = data.cards;
-        const sortedCards = sort.sortElement(dom.sort);
+        apiSettings.setCurrentCards(data.cards);
+        const sortedCards = sort.sortElement(sortSelect);
+        console.log('total count', apiSettings.list.totalCount)
         return createList(sortedCards);
       })
       .catch((err) => {
@@ -61,13 +66,8 @@ const mtgApi = (function () {
     initEvents();
   }
 
-  function getCurrentCards() {
-    return currentCards;
-  }
-
   return {
     initApi,
-    getCurrentCards,
     createList,
   };
 }());

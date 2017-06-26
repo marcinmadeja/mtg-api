@@ -1,19 +1,16 @@
-import mtgApi from './api';
+import apiSettings from './settings';
 
 const sort = (function () {
   function sortElement(select) {
     const field = select.value || '';
     const sortType = select.selectedOptions[0].dataset.sortType || 'asc';
-    const currentCards = [...mtgApi.getCurrentCards()];
-
-    console.log('field.length', field.length);
+    const cards = [...apiSettings.getCurrentCards()];
 
     if (!field.length) {
-      console.table(currentCards);
-      return currentCards;
+      return cards;
     }
 
-    const sortedCard = currentCards.sort((a, b) => {
+    const sortedCard = cards.sort((a, b) => {
       const aVal = a[field];
       const bVal = b[field];
 

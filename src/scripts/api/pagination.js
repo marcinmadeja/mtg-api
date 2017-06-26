@@ -1,16 +1,19 @@
+import apiSettings from './settings';
+
 const pagination = (function () {
-  const headerSettings = {
-    page: 1,
-    pageSize: 32,
-    totalCount: false,
-  };
+  const headerSettings = apiSettings.list;
 
   function setHeaderSettings(header) {
     headerSettings.totalCount = header.get('Total-Count') ? header.get('Total-Count') : false;
   }
 
+  function createPagination() {
+
+  }
+
   return {
     setHeaderSettings,
+    createPagination,
   };
 }());
 

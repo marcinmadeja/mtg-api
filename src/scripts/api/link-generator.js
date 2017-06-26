@@ -1,13 +1,9 @@
-import dom from './dom';
+import apiSettings from './settings';
 
 const linkGenerator = (function () {
   const apiUrl = 'https://api.magicthegathering.io/v1/cards';
-  const settings = {
-    onlyWithImg: true,
-    pages: 1,
-    pageSize: 32,
-    randomPageSize: 8,
-  };
+  const dom = apiSettings.dom;
+  const settings = apiSettings.list;
 
   function addSettingsUrl() {
     let settingsParts = [];
