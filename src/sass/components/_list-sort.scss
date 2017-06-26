@@ -9,12 +9,29 @@
 
     background: $color-lighter;
   }
+
+  &__item-sort {
+    margin-right: auto;
+  }
+
+  &__item-show {
+    margin-right: em(20px);
+  }
+  
+  &__select {
+    padding: em(2px) em(5px);
+    font-size: rem(15px);
+  }
+
+  &__label {
+    margin-right: em(13px);
+
+    font-weight: 500;
+  }
 }
 
 .list-grid {
   @extend %reset-list;
-
-  margin-right: auto;
 
   &__item {
     display: inline-block;
@@ -23,21 +40,12 @@
 
   &__btn {
     @extend %reset-btn;
+
+    padding: 0 em(4px);
   }
 
   &__icon {
     color: $color-dark;
-    font-size: rem(21px);
-  }
-}
-
-.list-sort {
-  padding: em(2px) em(5px);
-  font-size: rem(15px);
-
-  &__label {
-    margin-right: em(13px);
-
-    font-weight: 500;
+    font-size: rem(16px);
   }
 }

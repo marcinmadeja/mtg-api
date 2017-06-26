@@ -8,8 +8,8 @@ const linkGenerator = (function () {
   function addSettingsUrl() {
     let settingsParts = [];
 
-    if (settings.pages && settings.pageSize) {
-      settingsParts.push(`page=${settings.pages}&pageSize=${settings.pageSize}`);
+    if (settings.pages && settings.displayCardsAmount) {
+      settingsParts.push(`page=${settings.pages}&pageSize=${settings.displayCardsAmount}`);
     }
 
     if (settings.onlyWithImg) {
@@ -55,7 +55,7 @@ const linkGenerator = (function () {
   }
 
   function generateRandom() {
-    return `${apiUrl}?random=true&pageSize=${settings.randomPageSize}&contains=imageUrl`;
+    return `${apiUrl}?random=true&pageSize=${settings.displayCardsAmount}&contains=imageUrl`;
   }
 
   return {

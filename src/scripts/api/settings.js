@@ -4,11 +4,10 @@ const apiSettings = (function () {
 
   const list = {
     onlyWithImg: true,
-    pageCurrent: 1,
+    paginationCurrentPage: 1,
+    paginationTotalPages: 0,
     pages: 1,
-    pageSize: 16,
-    randomPageSize: 16,
-    showPage: 8,
+    displayCardsAmount: 8,
     totalCount: false,
   };  
 
@@ -19,6 +18,8 @@ const apiSettings = (function () {
     searchName: form.querySelectorAll('[name="search-card"]'),
     searchColorIdentity: form.querySelectorAll('[name="colorIdentity"]'),
     sort: document.querySelector('.js-sort'),
+    cardsCountWrap: document.querySelector('.cards-count'),
+    displayCardsSelect: document.querySelector('.js-change-display-cards'),
   };
 
   function getCurrentCards() {

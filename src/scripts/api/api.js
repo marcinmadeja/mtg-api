@@ -32,7 +32,6 @@ const mtgApi = (function () {
       .then(data => {
         apiSettings.setCurrentCards(data.cards);
         const sortedCards = sort.sortElement(sortSelect);
-        console.log('total count', apiSettings.list.totalCount)
         return createList(sortedCards);
       })
       .catch((err) => {
@@ -40,15 +39,20 @@ const mtgApi = (function () {
       });
   }
 
+  function changeDisplayCards() {
+    pagination.changeDisplayCardsAmount();
+    initSearch();
+  }
+
   function initSearch(e) {
-    e.preventDefault();
+    if (e) e.preventDefault();
+
     const url = linkGenerator.generate();
     listPromise(url);
   }
 
   function initRandom() {
     const url = linkGenerator.generateRandom();
-
     listPromise(url);
   }
 
@@ -59,6 +63,8 @@ const mtgApi = (function () {
       const sortedCards = sort.sortElement(this);
       createList(sortedCards);
     });
+
+    dom.displayCardsSelect.addEventListener('change', changeDisplayCards);
   }
 
   function initApi() {

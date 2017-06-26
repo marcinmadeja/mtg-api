@@ -88,38 +88,38 @@
 
 <div class="list-options">
   <div class="list-options__container container">
+    <div class="list-options__item-sort list-options__item">
+      <span class="list-options__label">Sort by:</span>
+      <select class="list-options__select js-sort">
+        <option class="list-options__option" value="">standard</option>
+        <option class="list-options__option" value="name" data-sort-type="asc">Name, A to Z</option>
+        <option class="list-options__option" value="name" data-sort-type="desc">Name, Z to A</option>
+        <option class="list-options__option" value="power" data-sort-type="asc">Power, low to high</option>
+        <option class="list-options__option" value="power" data-sort-type="desc">Power, high to low</option>
+        <option class="list-options__option" value="toughness" data-sort-type="asc">Toughness, low to high</option>
+        <option class="list-options__option" value="toughness" data-sort-type="desc">Toughness, high to low</option>
+        <option class="list-options__option" value="cmc" data-sort-type="asc">Mana cost, low to high</option>
+        <option class="list-options__option" value="cmc" data-sort-type="desc">Mana cost, high to low</option>
+      </select>
+    </div>
+
+    <div class="list-options__item-show list-options__item">
+      <span class="list-options__label">Show:</span>
+      <select class="list-options__select js-change-display-cards">
+        <option value="8" class="list-options__option">8</option>
+        <option value="16" class="list-options__option">16 </option>
+        <option value="32" class="list-options__option">32</option>
+        <option value="48" class="list-options__option">48</option>
+        <option value="72" class="list-options__option">72</option>
+        <option value="100" class="list-options__option">100</option>
+      </select>
+    </div>
+
     <ul class="list-grid">
       <li class="list-grid__item"><button class="list-grid__btn"><i class="list-grid__icon fa fa-th" aria-hidden="true"></i></button></li>
       <li class="list-grid__item"><button class="list-grid__btn"><i class="list-grid__icon fa fa-th-large" aria-hidden="true"></i></button></li>
       <li class="list-grid__item"><button class="list-grid__btn"><i class="list-grid__icon fa fa-th-list" aria-hidden="true"></i></button></li>
     </ul>
-
-    <div class="list-show">
-      <span class="list-show__label">Show:</span>
-      <select class="list-show js-show">
-        <option value="8" class="list-show__item">8</option>
-        <option value="16" class="list-show__item">16 </option>
-        <option value="32" class="list-show__item">32</option>
-        <option value="48" class="list-show__item">48</option>
-        <option value="72" class="list-show__item">72</option>
-        <option value="100" class="list-show__item">100</option>
-      </select>
-    </div>
-
-    <div class="list-sort">
-      <span class="list-sort__label">Sort by:</span>
-      <select class="list-sort js-sort">
-        <option class="list-sort__item" value="">standard</option>
-        <option class="list-sort__item" value="name" data-sort-type="asc">Name, A to Z</option>
-        <option class="list-sort__item" value="name" data-sort-type="desc">Name, Z to A</option>
-        <option class="list-sort__item" value="power" data-sort-type="asc">Power, low to high</option>
-        <option class="list-sort__item" value="power" data-sort-type="desc">Power, high to low</option>
-        <option class="list-sort__item" value="toughness" data-sort-type="asc">Toughness, low to high</option>
-        <option class="list-sort__item" value="toughness" data-sort-type="desc">Toughness, high to low</option>
-        <option class="list-sort__item" value="cmc" data-sort-type="asc">Mana cost, low to high</option>
-        <option class="list-sort__item" value="cmc" data-sort-type="desc">Mana cost, high to low</option>
-      </select>
-    </div>
   </div>
 </div>
 
