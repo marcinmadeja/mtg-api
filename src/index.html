@@ -6,128 +6,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <title>MTG APP</title>
+    <title>MTG API</title>
 </head>
 <body>
+  <header class="l-header">
+    <div class="top-bar">
+      <img src="img/logo-magic.png" alt="logo" class="top-bar__logo">
+    </div>
 
-<header class="l-header">
-  <div class="top-bar">
-    <img src="img/logo-magic.png" alt="logo" class="top-bar__logo">
+    <div class="l-header__bg"></div>
+  </header>
+
+  <div class="search">
+    <form action="#" class="search__form js__search-form">
+      <div class="search__section">
+        <div class="search__item--extend search__item mtg-field__name-wrap">
+          <input type="text" class="f-input--full f-input" name="name">
+        </div>
+
+        <div class="search__item">
+          <button class="js__search-btn btn" type="button">szukaj</button>
+        </div>
+
+        <div class="search__item">
+          <button class="btn-expand" type="button"></button>
+        </div>
+      </div>
+
+      <div class="search__section">
+        <div class="search__item--card search__item">
+          <span class="search__name">Search Card:</span>
+
+          <div class="search__check-wrap">
+            <input class="f-check" type="radio" name="search-card" value="name" id="search-card-name" checked>
+            <label class="f-check__label" for="search-card-name">Name</label>
+          </div>
+
+          <div class="search__check-wrap">
+            <input class="f-check" type="radio" name="search-card" value="type" id="search-card-types">
+            <label class="f-check__label" for="search-card-types">Types</label>
+          </div>
+
+          <div class="search__check-wrap">
+            <input class="f-check" type="radio" name="search-card" value="text" id="search-card-text">
+            <label class="f-check__label" for="search-card-text">Text</label>
+          </div>                
+        </div>
+
+        <div class="search__item--colors search__item">
+          <span class="search__name">Search by Color:</span>
+            <div class="search__check-wrap">
+              <input class="f-check" type="checkbox" name="colorIdentity" value="W" id="colorIdentity-w">
+              <label class="f-check__label" for="colorIdentity-w"><img src="img/white-mana.png" alt="" class="search__color-img"></label>
+            </div>
+
+            <div class="search__check-wrap">
+              <input class="f-check" type="checkbox" name="colorIdentity" value="U" id="colorIdentity-u">
+              <label class="f-check__label" for="colorIdentity-u"><img src="img/blue-mana.png" alt="" class="search__color-img"></label>
+            </div>
+
+            <div class="search__check-wrap">
+              <input class="f-check" type="checkbox" name="colorIdentity" value="B" id="colorIdentity-b">
+              <label class="f-check__label" for="colorIdentity-b"><img src="img/black-mana.png" alt="" class="search__color-img"></label>
+            </div>
+
+            <div class="search__check-wrap">
+              <input class="f-check" type="checkbox" name="colorIdentity" value="R" id="colorIdentity-r">
+              <label class="f-check__label" for="colorIdentity-r"><img src="img/red-mana.png" alt="" class="search__color-img"></label>
+            </div>
+
+            <div class="search__check-wrap">
+              <input class="f-check" type="checkbox" name="colorIdentity" value="G" id="colorIdentity-green">
+              <label class="f-check__label" for="colorIdentity-green"><img src="img/green-mana.png" alt="" class="search__color-img"></label>
+            </div>                                       
+          </div>
+
+        </div> <!-- search base  -->
+    </form>
   </div>
 
-  <div class="l-header__bg"></div>
-</header>
+  <div class="list-options">
+    <div class="list-options__container container">
+      <div class="list-options__item-sort list-options__item">
+        <span class="list-options__label">Sort by:</span>
 
-<div class="search">
-  <form action="#" class="search__form js__search-form">
-    <div class="search__section">
-      <div class="search__item--extend search__item mtg-field__name-wrap">
-        <input type="text" class="f-input--full f-input" name="name">
+        <select class="list-options__select js-sort">
+          <option class="list-options__option" value="">standard</option>
+          <option class="list-options__option" value="name" data-sort-type="asc">Name, A to Z</option>
+          <option class="list-options__option" value="name" data-sort-type="desc">Name, Z to A</option>
+          <option class="list-options__option" value="power" data-sort-type="asc">Power, low to high</option>
+          <option class="list-options__option" value="power" data-sort-type="desc">Power, high to low</option>
+          <option class="list-options__option" value="toughness" data-sort-type="asc">Toughness, low to high</option>
+          <option class="list-options__option" value="toughness" data-sort-type="desc">Toughness, high to low</option>
+          <option class="list-options__option" value="cmc" data-sort-type="asc">Mana cost, low to high</option>
+          <option class="list-options__option" value="cmc" data-sort-type="desc">Mana cost, high to low</option>
+        </select>
       </div>
 
-      <div class="search__item">
-        <button class="js__search-btn btn" type="button">szukaj</button>
+      <div class="list-options__item-show list-options__item">
+        <span class="list-options__label">Show:</span>
+        
+        <select class="list-options__select js-change-display-cards">
+          <option value="8" class="list-options__option">8</option>
+          <option value="16" class="list-options__option">16 </option>
+          <option value="32" class="list-options__option">32</option>
+          <option value="48" class="list-options__option">48</option>
+          <option value="72" class="list-options__option">72</option>
+          <option value="100" class="list-options__option">100</option>
+        </select>
       </div>
 
-      <div class="search__item">
-        <button class="btn-expand" type="button"></button>
-      </div>
+      <ul class="list-grid">
+        <li class="list-grid__item"><button class="list-grid__btn"><i class="list-grid__icon fa fa-th" aria-hidden="true"></i></button></li>
+        <li class="list-grid__item"><button class="list-grid__btn"><i class="list-grid__icon fa fa-th-large" aria-hidden="true"></i></button></li>
+        <li class="list-grid__item"><button class="list-grid__btn"><i class="list-grid__icon fa fa-th-list" aria-hidden="true"></i></button></li>
+      </ul>
     </div>
-
-    <div class="search__section">
-      <div class="search__item--card search__item">
-        <span class="search__name">Search Card:</span>
-
-        <div class="search__check-wrap">
-          <input class="f-check" type="radio" name="search-card" value="name" id="search-card-name" checked>
-          <label class="f-check__label" for="search-card-name">Name</label>
-        </div>
-
-        <div class="search__check-wrap">
-          <input class="f-check" type="radio" name="search-card" value="type" id="search-card-types">
-          <label class="f-check__label" for="search-card-types">Types</label>
-        </div>
-
-        <div class="search__check-wrap">
-          <input class="f-check" type="radio" name="search-card" value="text" id="search-card-text">
-          <label class="f-check__label" for="search-card-text">Text</label>
-        </div>                
-      </div>
-
-      <div class="search__item--colors search__item">
-        <span class="search__name">Search by Color:</span>
-          <div class="search__check-wrap">
-            <input class="f-check" type="checkbox" name="colorIdentity" value="W" id="colorIdentity-w">
-            <label class="f-check__label" for="colorIdentity-w"><img src="img/white-mana.png" alt="" class="search__color-img"></label>
-          </div>
-
-          <div class="search__check-wrap">
-            <input class="f-check" type="checkbox" name="colorIdentity" value="U" id="colorIdentity-u">
-            <label class="f-check__label" for="colorIdentity-u"><img src="img/blue-mana.png" alt="" class="search__color-img"></label>
-          </div>
-
-          <div class="search__check-wrap">
-            <input class="f-check" type="checkbox" name="colorIdentity" value="B" id="colorIdentity-b">
-            <label class="f-check__label" for="colorIdentity-b"><img src="img/black-mana.png" alt="" class="search__color-img"></label>
-          </div>
-
-          <div class="search__check-wrap">
-            <input class="f-check" type="checkbox" name="colorIdentity" value="R" id="colorIdentity-r">
-            <label class="f-check__label" for="colorIdentity-r"><img src="img/red-mana.png" alt="" class="search__color-img"></label>
-          </div>
-
-          <div class="search__check-wrap">
-            <input class="f-check" type="checkbox" name="colorIdentity" value="G" id="colorIdentity-green">
-            <label class="f-check__label" for="colorIdentity-green"><img src="img/green-mana.png" alt="" class="search__color-img"></label>
-          </div>                                       
-        </div>
-
-      </div> <!-- search base  -->
-  </form>
-</div>
-
-<div class="list-options">
-  <div class="list-options__container container">
-    <div class="list-options__item-sort list-options__item">
-      <span class="list-options__label">Sort by:</span>
-      <select class="list-options__select js-sort">
-        <option class="list-options__option" value="">standard</option>
-        <option class="list-options__option" value="name" data-sort-type="asc">Name, A to Z</option>
-        <option class="list-options__option" value="name" data-sort-type="desc">Name, Z to A</option>
-        <option class="list-options__option" value="power" data-sort-type="asc">Power, low to high</option>
-        <option class="list-options__option" value="power" data-sort-type="desc">Power, high to low</option>
-        <option class="list-options__option" value="toughness" data-sort-type="asc">Toughness, low to high</option>
-        <option class="list-options__option" value="toughness" data-sort-type="desc">Toughness, high to low</option>
-        <option class="list-options__option" value="cmc" data-sort-type="asc">Mana cost, low to high</option>
-        <option class="list-options__option" value="cmc" data-sort-type="desc">Mana cost, high to low</option>
-      </select>
-    </div>
-
-    <div class="list-options__item-show list-options__item">
-      <span class="list-options__label">Show:</span>
-      <select class="list-options__select js-change-display-cards">
-        <option value="8" class="list-options__option">8</option>
-        <option value="16" class="list-options__option">16 </option>
-        <option value="32" class="list-options__option">32</option>
-        <option value="48" class="list-options__option">48</option>
-        <option value="72" class="list-options__option">72</option>
-        <option value="100" class="list-options__option">100</option>
-      </select>
-    </div>
-
-    <ul class="list-grid">
-      <li class="list-grid__item"><button class="list-grid__btn"><i class="list-grid__icon fa fa-th" aria-hidden="true"></i></button></li>
-      <li class="list-grid__item"><button class="list-grid__btn"><i class="list-grid__icon fa fa-th-large" aria-hidden="true"></i></button></li>
-      <li class="list-grid__item"><button class="list-grid__btn"><i class="list-grid__icon fa fa-th-list" aria-hidden="true"></i></button></li>
-    </ul>
   </div>
-</div>
 
-<div class="cards-list container"></div>
+  <div class="cards-list__section">
+    <div class="cards-list container"></div>
+    <div class="pagination container"></div>
+  </div>
 
-<footer class="l-footer">
-  
-</footer>
-
+  <footer class="l-footer">
+    
+  </footer>
 </body>
 </html>

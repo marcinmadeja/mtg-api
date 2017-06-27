@@ -51,6 +51,11 @@ const mtgApi = (function () {
     listPromise(url);
   }
 
+  function generateList() {
+    const url = linkGenerator.generate();
+    listPromise(url);
+  }
+
   function initRandom() {
     const url = linkGenerator.generateRandom();
     listPromise(url);
@@ -75,6 +80,7 @@ const mtgApi = (function () {
   return {
     initApi,
     createList,
+    generateList,
   };
 }());
 

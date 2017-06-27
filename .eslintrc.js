@@ -18,6 +18,7 @@ module.exports = {
       "no-trailing-spaces": 0,
       "no-use-before-define": 0,
       "import/prefer-default-export": 1,
-      "no-restricted-syntax" : 0
+      "no-restricted-syntax" : 0,
+      "max-len": 1,
     }
 }

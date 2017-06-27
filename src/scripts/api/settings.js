@@ -8,7 +8,7 @@ const apiSettings = (function () {
     paginationTotalPages: 0,
     pages: 1,
     displayCardsAmount: 8,
-    totalCount: false,
+    totalCount: 0,
   };  
 
   const dom = {
@@ -19,6 +19,7 @@ const apiSettings = (function () {
     searchColorIdentity: form.querySelectorAll('[name="colorIdentity"]'),
     sort: document.querySelector('.js-sort'),
     cardsCountWrap: document.querySelector('.cards-count'),
+    cardListSection: document.querySelector('.cards-list__section'),
     displayCardsSelect: document.querySelector('.js-change-display-cards'),
   };
 

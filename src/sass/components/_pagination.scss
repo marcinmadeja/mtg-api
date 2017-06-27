@@ -1,0 +1,33 @@
+.pagination {
+  margin-bottom: em(30px);
+  padding-top: em(20px);
+  padding-bottom: em(20px);
+
+  background: $color-lighter;
+
+  text-align: right;
+
+  &__item {
+    @extend %reset-btn;
+    @extend %transition;
+
+    min-width: em(35px);
+    padding: em(6px) em(12px);
+    color: $color-dark; 
+
+    &:not(:last-child) {
+      margin-right: em(10px);
+    }
+
+    &--btn {
+      background-color: $color-light;
+      border: 1px solid $color-border-light;
+    }
+
+    &--btn:hover,
+    &--current {
+      color: $color-light;
+      background: $brand-color;
+    }
+  }
+}

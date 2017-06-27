@@ -9,7 +9,7 @@ const linkGenerator = (function () {
     let settingsParts = [];
 
     if (settings.pages && settings.displayCardsAmount) {
-      settingsParts.push(`page=${settings.pages}&pageSize=${settings.displayCardsAmount}`);
+      settingsParts.push(`page=${settings.paginationCurrentPage}&pageSize=${settings.displayCardsAmount}`);
     }
 
     if (settings.onlyWithImg) {
