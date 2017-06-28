@@ -3,22 +3,21 @@ import apiSettings from './settings';
 import utilities from './utilities';
 
 const pagination = (function () {
-  const headerSettings = apiSettings.list;
   const cardsCountWrap = apiSettings.dom.cardsCountWrap;
   const dom = apiSettings.dom;
   const listSetings = apiSettings.list;
 
   function setHeaderSettings(header) {
-    headerSettings.totalCount = header.get('Total-Count') ? header.get('Total-Count') : false;
+    listSetings.totalCount = header.get('Total-Count') ? header.get('Total-Count') : false;
 
-    if (headerSettings.totalCount === false || headerSettings.totalCount === undefined) {
+    if (listSetings.totalCount === false || listSetings.totalCount === undefined) {
       cardsCountWrap.innerHTML = '';
       return false;
     }
 
     if (cardsCountWrap) {
       cardsCountWrap.innerHTML = `
-        <div class="cards-count__msg">Founded ${headerSettings.totalCount} ${headerSettings.totalCount <= 1 ? 'card' : 'cards'}</div>
+        <div class="cards-count__msg">Founded ${listSetings.totalCount} ${listSetings.totalCount <= 1 ? 'card' : 'cards'}</div>
       `;
     }
   }

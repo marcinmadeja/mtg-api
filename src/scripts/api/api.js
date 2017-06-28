@@ -7,21 +7,17 @@ import sort from './sort';
 const mtgApi = (function () {
   const dom = apiSettings.dom;
 
-  function createList(data) {
-    const cards = data || [];
+  function createList() {
+    const cards = apiSettings.getCurrentCards();
     const cardList = dom.cardsList;
+    const sortSelect = dom.sort;
+    const sortedCards = sort.sortElement(sortSelect);
 
-    if (!cards.length) {
-      cardList.innerHTML = '<p>brak kart</p>';
-      return false;
-    }
-
-    cardList.innerHTML = listTemplates.generateTemplate(cards);
+    cardList.innerHTML = listTemplates.generateTemplate(sortedCards);
   }
 
   function listPromise(url) {
     const postsPromise = fetch(url);
-    const sortSelect = dom.sort;
 
     const list = postsPromise
       .then(data => { 
@@ -31,8 +27,7 @@ const mtgApi = (function () {
       })
       .then(data => {
         apiSettings.setCurrentCards(data.cards);
-        const sortedCards = sort.sortElement(sortSelect);
-        return createList(sortedCards);
+        return createList();
       })
       .catch((err) => {
         console.error(err);
@@ -65,8 +60,7 @@ const mtgApi = (function () {
     dom.searchBtn.addEventListener('click', initSearch);
     dom.form.addEventListener('submit', initSearch);
     dom.sort.addEventListener('change', function () {
-      const sortedCards = sort.sortElement(this);
-      createList(sortedCards);
+      createList(apiSettings.getCurrentCards());
     });
 
     dom.displayCardsSelect.addEventListener('change', changeDisplayCards);

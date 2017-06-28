@@ -45,7 +45,13 @@
   }
 
   &__icon {
-    color: $color-dark;
+    color: $color-dark-lighter;
     font-size: rem(16px);
+
+    &:hover,
+    .list-grid__btn--is-active &
+     {
+      color: $color-dark;
+    }
   }
 }

@@ -1,22 +1,25 @@
 .cards-list {
   &__img-wrap {
     width: em(223px);
+    min-width: em(223px);
     height: em(310px);
   }
 
   &__item {
-    @include span(3);
-
     margin-bottom: em(40px);
     cursor: pointer;
 
-    &:nth-child(4n) {
-      @include span(3 last);
-    }
+    &--grid {
+      @include span(3);
 
-    &:nth-child(4n+1) {
-      clear: both;
-    }
+      &:nth-child(4n) {
+        @include span(3 last);
+      }
+
+      &:nth-child(4n+1) {
+        clear: both;
+      }
+    } 
   }
 
   &__img {
@@ -60,6 +63,15 @@
 
   &__text {
     font-size: rem(15px);
+
+    &:not(:last-child) {
+      margin-bottom: em(7px, 15px);
+    }
+  }
+
+  &__text-label {
+    padding-right: 15px;
+    font-weight: 500;
   }
 
   &__attribute {
@@ -67,4 +79,26 @@
     margin-right: 1px;
     vertical-align: bottom;
   }
+
+  /* list template */
+  &__item {
+    &--list {
+      @include span(12);
+      @include flex-center;
+      
+    }
+  }
+
+  &__body {
+    flex: 1;
+    margin-left: em(40px);
+    color: idiot;
+
+    &__item--list & {
+      color: red;
+    }
+  }
+
+
 }
+

@@ -9,6 +9,7 @@ const apiSettings = (function () {
     pages: 1,
     displayCardsAmount: 8,
     totalCount: 0,
+    displayList: 'grid',
   };  
 
   const dom = {
@@ -21,6 +22,7 @@ const apiSettings = (function () {
     cardsCountWrap: document.querySelector('.cards-count'),
     cardListSection: document.querySelector('.cards-list__section'),
     displayCardsSelect: document.querySelector('.js-change-display-cards'),
+    changeGridBtn: document.querySelectorAll('.list-grid__btn'),
   };
 
   function getCurrentCards() {

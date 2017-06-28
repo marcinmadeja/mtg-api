@@ -1,5 +1,10 @@
+import apiSettings from './settings';
+import api from './api';
+
 const listTemplates = (function () {
-  let currentTemplate = 'simple';
+  const listSetings = apiSettings.list;
+  const dom = apiSettings.dom;
+
   const msgEmptyList = 'No cards';
   const noImgDiv = `
     <div class="cards-list__no-img-wrap">
@@ -8,12 +13,79 @@ const listTemplates = (function () {
     </div>
   `;
 
+  function getGridTemplate(cards) {
+    return cards.map(card => {
+      const imgUrl = card.imageUrl || noImgDiv;
+
+      return `
+        <div class="cards-list__item cards-list__item--grid">
+          <div class="cards-list__img-wrap">
+            ${card.imageUrl ? `<img src="${imgUrl}" alt="${card.name}" class="cards-list__img"/>` : noImgDiv}
+          </div>
+
+          <header class="cards-list__header">
+            <h4 class="cards-list__name">${card.name}</h4>
+            <span class="cards-list__mana">${replaceTextShorts(card.manaCost, 'cards-list__attribute-mana')}</span>
+            <span class="cards-list__mana-total">${card.cmc ? `(${card.cmc})` : ''}</span>
+
+            <div class="cards-list__type">${card.type}</div>
+            <div class="cards-list__set-rarity">${card.setName} - ${card.rarity}</div>
+          </header>
+
+          <div class="cards-list__text">${replaceTextShorts(card.text)}</div>
+        </div>`;
+    }).join('');    
+  }  
+
+
+  function getListTemplate(cards) {
+    return cards.map(card => {
+      const imgUrl = card.imageUrl || noImgDiv;
+      const textParts = ['artist', 'text', 'flavor', 'power', 'toughness'];
+      const text = textParts.map(part => {
+        if (!card[part]) return '';
+
+        return `
+            <div class="cards-list__text">
+              <span class="cards-list__text-label">${part}: </span>
+              ${replaceTextShorts(card[part])}
+            </div>
+         `;
+      }).join('');
+
+
+      return `
+        <div class="cards-list__item cards-list__item--list">
+          <div class="cards-list__img-wrap">
+            ${card.imageUrl ? `<img src="${imgUrl}" alt="${card.name}" class="cards-list__img"/>` : noImgDiv}
+          </div>
+
+          <div class="cards-list__body">
+            <header class="cards-list__header">
+              <h4 class="cards-list__name">${card.name}</h4>
+              <span class="cards-list__mana">${replaceTextShorts(card.manaCost, 'cards-list__attribute-mana')}</span>
+              <span class="cards-list__mana-total">${card.cmc ? `(${card.cmc})` : ''}</span>
+
+              <div class="cards-list__type">${card.type}</div>
+              <div class="cards-list__set-rarity">${card.setName} - ${card.rarity}</div>
+            </header>
+
+            ${text}
+          </div>
+        </div>`;
+    }).join(''); 
+  }
+
   function generateTemplate(cards) {
     if (!cards.length) {
       return msgEmptyList;
     }
 
-    return returnSimpleTemplate(cards);
+    if (listSetings.displayList === 'list') {
+      return getListTemplate(cards);
+    }
+
+    return getGridTemplate(cards);
   }
 
   function replaceTextShorts(string, shortClass = 'cards-list__attribute') {
@@ -39,30 +111,23 @@ const listTemplates = (function () {
     return string;   
   }
 
-  function returnSimpleTemplate(cards) {
-    console.log('cards', cards);
-    return cards.map(card => {
-      const imgUrl = card.imageUrl || noImgDiv;
+  function changeGrid(e) {
+    if (this.classList.contains('list-grid__btn--is-active')) return false;
 
-      return `
-        <div class="cards-list__item">
-          <div class="cards-list__img-wrap">
-            ${card.imageUrl ? `<img src="${imgUrl}" alt="${card.name}" class="cards-list__img"/>` : noImgDiv}
-          </div>
+    document.querySelector('.list-grid__btn--is-active').classList.remove('list-grid__btn--is-active');
+    this.classList.add('list-grid__btn--is-active');
 
-          <header class="cards-list__header">
-            <h4 class="cards-list__name">${card.name}</h4>
-            <span class="cards-list__mana">${replaceTextShorts(card.manaCost, 'cards-list__attribute-mana')}</span>
-            <span class="cards-list__mana-total">${card.cmc ? `(${card.cmc})` : ''}</span>
-
-            <div class="cards-list__type">${card.type}</div>
-            <div class="cards-list__set-rarity">${card.setName} - ${card.rarity}</div>
-          </header>
-
-          <div class="cards-list__text">${replaceTextShorts(card.text)}</div>
-        </div>`;
-    }).join('');    
+    listSetings.displayList = this.dataset.display;
+    api.createList();
   }
+
+  function initEvent() {
+    dom.changeGridBtn.forEach(btn => {
+      btn.addEventListener('click', changeGrid);
+    });
+  }
+
+  initEvent();
 
   return {
     generateTemplate,

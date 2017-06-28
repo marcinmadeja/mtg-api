@@ -80,8 +80,7 @@
               <label class="f-check__label" for="colorIdentity-green"><img src="img/green-mana.png" alt="" class="search__color-img"></label>
             </div>                                       
           </div>
-
-        </div> <!-- search base  -->
+        </div> <!-- search base  -->     
     </form>
   </div>
 
@@ -117,9 +116,13 @@
       </div>
 
       <ul class="list-grid">
-        <li class="list-grid__item"><button class="list-grid__btn"><i class="list-grid__icon fa fa-th" aria-hidden="true"></i></button></li>
-        <li class="list-grid__item"><button class="list-grid__btn"><i class="list-grid__icon fa fa-th-large" aria-hidden="true"></i></button></li>
-        <li class="list-grid__item"><button class="list-grid__btn"><i class="list-grid__icon fa fa-th-list" aria-hidden="true"></i></button></li>
+        <li class="list-grid__item">
+          <button class="list-grid__btn--is-active list-grid__btn" data-display="grid"><i class="list-grid__icon fa fa-th" aria-hidden="true"></i></button>
+        </li>
+
+        <li class="list-grid__item">
+          <button class="list-grid__btn" data-display="list"><i class="list-grid__icon fa fa-th-list" aria-hidden="true"></i></button>
+        </li>
       </ul>
     </div>
   </div>
@@ -130,7 +133,7 @@
   </div>
 
   <footer class="l-footer">
-    
+
   </footer>
 </body>
 </html>
