@@ -5,7 +5,7 @@ import pagination from './pagination';
 import sort from './sort';
 
 const mtgApi = (function () {
-  const dom = apiSettings.dom;
+  const { dom, list: listSettings } = apiSettings;
 
   function createList() {
     const cards = apiSettings.getCurrentCards();
@@ -19,7 +19,7 @@ const mtgApi = (function () {
   function listPromise(url) {
     const postsPromise = fetch(url);
 
-    const list = postsPromise
+    postsPromise
       .then(data => { 
         pagination.setHeaderSettings(data.headers);
         pagination.createPagination();
@@ -32,6 +32,16 @@ const mtgApi = (function () {
       .catch((err) => {
         console.error(err);
       });
+  }
+
+  function showAdvancedMenu() {
+    if (dom.searchAdvanced.classList.contains('search__advanced--is-active')) {
+      dom.searchAdvanced.classList.remove('search__advanced--is-active');
+      listSettings.advancedSearch = false;
+    } else {
+      dom.searchAdvanced.classList.add('search__advanced--is-active');
+      listSettings.advancedSearch = true;
+    }
   }
 
   function changeDisplayCards() {
@@ -64,11 +74,39 @@ const mtgApi = (function () {
     });
 
     dom.displayCardsSelect.addEventListener('change', changeDisplayCards);
+    dom.expandBtn.addEventListener('click', showAdvancedMenu);
+  }
+
+  function initAdvancedFormSelects() {
+    dom.advancedSelects.forEach(select => {
+      const linkPart = select.dataset.link;
+      const postsPromise = fetch(linkGenerator.generateSpecialLink(linkPart));
+
+      postsPromise
+        .then(data => data.json())
+        .then(data => {
+          if (data[linkPart]) {
+            data[linkPart].forEach(item => {
+              item = linkPart === 'sets' ? item.name : item;
+              const option = document.createElement('option');
+              const textNode = document.createTextNode(item);
+
+              option.appendChild(textNode);
+              option.value = item;
+              select.appendChild(option);
+            });
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    });
   }
 
   function initApi() {
     initRandom();
     initEvents();
+    initAdvancedFormSelects();
   }
 
   return {

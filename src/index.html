@@ -18,7 +18,7 @@
   </header>
 
   <div class="search">
-    <form action="#" class="search__form js__search-form">
+    <form action="#" class="search__form js__search-form container">
       <div class="search__section">
         <div class="search__item--extend search__item mtg-field__name-wrap">
           <input type="text" class="f-input--full f-input" name="name">
@@ -80,7 +80,40 @@
               <label class="f-check__label" for="colorIdentity-green"><img src="img/green-mana.png" alt="" class="search__color-img"></label>
             </div>                                       
           </div>
-        </div> <!-- search base  -->     
+        </div> <!-- search base  -->
+
+        <div class="search__advanced">
+          <div class="search__section">
+            <div class="search__item">
+              <select name="gameFormat" data-link="formats" class="f-select js-select-formats js-advanced-selects">
+                <option value=''>Choose formats</option>
+              </select>
+            </div>
+
+            <div class="search__item">
+              <select name="setName" data-link="sets" class="f-select js-select-formats js-advanced-selects">
+                <option value=''>Choose sets</option>
+              </select>
+            </div>
+
+            <div class="search__item">
+              <select name="types" data-link="types" class="f-select js-select-formats js-advanced-selects">
+                <option value=''>Choose types</option>
+              </select>
+            </div>
+
+            <div class="search__item">
+              <select name="supertypes" data-link="supertypes" class="f-select js-select-formats js-advanced-selects">
+                <option value=''>Choose supertypes</option>
+              </select>
+            </div>
+
+            <div class="search__item">
+              <select name="subtypes" data-link="subtypes" class="f-select js-select-formats js-advanced-selects">
+                <option value=''>Choose subtypes</option>
+              </select>
+            </div>                                                
+        </div>                
     </form>
   </div>
 

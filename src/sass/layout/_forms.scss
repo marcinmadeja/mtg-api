@@ -3,11 +3,19 @@
 }
 
 .f-input {
-  height: $input-height;
+  height: rem($input-height);
   border: 1px solid $color-border-light;
   padding: 0 em(15px); 
 
   &--full {
     width: 100%;
   } 
+}
+
+.f-select {
+  background: #fff;
+  border: 1px solid $color-border-light;
+  height: rem($input-height);
+  padding: 0 em(3px);
+  font-size: rem(15px);
 }

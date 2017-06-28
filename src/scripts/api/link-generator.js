@@ -1,9 +1,18 @@
 import apiSettings from './settings';
 
 const linkGenerator = (function () {
-  const apiUrl = 'https://api.magicthegathering.io/v1/cards';
+  const baseLink = 'https://api.magicthegathering.io/v1/';
+  const carsdUrl = `${baseLink}cards`;
   const dom = apiSettings.dom;
   const settings = apiSettings.list;
+
+  function generateRandom() {
+    return `${carsdUrl}?random=true&pageSize=${settings.displayCardsAmount}&contains=imageUrl`;
+  }
+
+  function generateSpecialLink(linkPart) {
+    return `${baseLink}${linkPart}`;
+  }
 
   function addSettingsUrl() {
     let settingsParts = [];
@@ -38,8 +47,24 @@ const linkGenerator = (function () {
     return `colorIdentity=${colors.join(',')}`;
   }
 
+  function generateSpecialSelectUrl() {
+    const urls = [];
+    const selects = dom.advancedSelects;
+    
+    selects.forEach(select => {
+      const value = select.value;
+      const name = select.name;
+
+      if (value.length) {
+        urls.push(`${name}=${value}`);
+      }
+    });
+
+    return urls;
+  }
+
   function generate() {
-    let url = `${apiUrl}?`;
+    let url = `${carsdUrl}?`;
     let urlParts = [];
 
     urlParts.push(
@@ -47,20 +72,23 @@ const linkGenerator = (function () {
         addColors(),
         addSettingsUrl());
 
-    url += urlParts.filter(part => part.length).join('&');
+    if (settings.advancedSearch) {
+      urlParts.push(...generateSpecialSelectUrl());
+    }
 
-    console.log(url);
+    urlParts = urlParts.filter(part => part.length).join('&');
+    urlParts = encodeURI(urlParts);
+    url += urlParts;
+
+    console.log('url', url);
 
     return url;
-  }
-
-  function generateRandom() {
-    return `${apiUrl}?random=true&pageSize=${settings.displayCardsAmount}&contains=imageUrl`;
   }
 
   return {
     generate,
     generateRandom,
+    generateSpecialLink,
   };
 }());
 

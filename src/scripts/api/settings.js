@@ -10,6 +10,8 @@ const apiSettings = (function () {
     displayCardsAmount: 8,
     totalCount: 0,
     displayList: 'grid',
+    showDefaultImg: true,
+    advancedSearch: false,
   };  
 
   const dom = {
@@ -23,6 +25,10 @@ const apiSettings = (function () {
     cardListSection: document.querySelector('.cards-list__section'),
     displayCardsSelect: document.querySelector('.js-change-display-cards'),
     changeGridBtn: document.querySelectorAll('.list-grid__btn'),
+    expandBtn: document.querySelector('.btn-expand'),
+    searchAdvanced: document.querySelector('.search__advanced'),
+    selectFormats: document.querySelector('.js-select-formats'),
+    advancedSelects: document.querySelectorAll('.js-advanced-selects'),
   };
 
   function getCurrentCards() {

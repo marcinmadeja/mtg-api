@@ -15,7 +15,8 @@ const listTemplates = (function () {
 
   function getGridTemplate(cards) {
     return cards.map(card => {
-      const imgUrl = card.imageUrl || noImgDiv;
+      let imgUrl = card.imageUrl || noImgDiv;
+      imgUrl = listSetings.showDefaultImg ? 'img/default-card.jpg' : imgUrl;
 
       return `
         <div class="cards-list__item cards-list__item--grid">
@@ -40,8 +41,10 @@ const listTemplates = (function () {
 
   function getListTemplate(cards) {
     return cards.map(card => {
-      const imgUrl = card.imageUrl || noImgDiv;
+      let imgUrl = card.imageUrl || noImgDiv;
       const textParts = ['artist', 'text', 'flavor', 'power', 'toughness'];
+      imgUrl = listSetings.showDefaultImg ? 'img/default-card.jpg' : imgUrl;
+      
       const text = textParts.map(part => {
         if (!card[part]) return '';
 

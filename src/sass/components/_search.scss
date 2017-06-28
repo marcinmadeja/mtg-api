@@ -49,4 +49,12 @@
       margin-right: 10px;
     }
   }
+
+  &__advanced {
+    display: none;
+
+    &--is-active {
+      display: block;
+    }
+  }
 }
