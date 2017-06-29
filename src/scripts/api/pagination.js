@@ -270,8 +270,6 @@ const pagination = (function () {
   function createPagination() {
     const paginationContent = createPaginationWrap();
     if (!paginationContent) return false;
-    // listSetings.paginationTotalPages = 8;
-    // listSetings.paginationCurrentPage = 3;    
     const paginationElements = createPaginationList();
 
     for (const element of paginationElements) {

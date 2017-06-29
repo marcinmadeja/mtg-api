@@ -63,6 +63,25 @@ const linkGenerator = (function () {
     return urls;
   }
 
+  function generateItemCompareUrl() {
+    const items = dom.itemCompare;
+    const urlParts = [];
+
+    for (const item of items) {
+      const type = item.dataset.itemCompare;
+      const valueElement = document.querySelector(`[name="${type}-compare"]`);
+      const compareOperatorElement = document.querySelector(`[name="${type}-compare-oprerator"]`);      
+      if (!type.length || !valueElement || !compareOperatorElement) return false;
+
+      const value = valueElement.value;
+      const compareOperator = compareOperatorElement.value;      
+
+      if (value) urlParts.push(`${type}=${compareOperator}${value}`);
+    }
+
+    return urlParts;
+  }
+
   function generate() {
     let url = `${carsdUrl}?`;
     let urlParts = [];
@@ -74,6 +93,7 @@ const linkGenerator = (function () {
 
     if (settings.advancedSearch) {
       urlParts.push(...generateSpecialSelectUrl());
+      urlParts.push(...generateItemCompareUrl());
     }
 
     urlParts = urlParts.filter(part => part.length).join('&');
@@ -89,6 +109,7 @@ const linkGenerator = (function () {
     generate,
     generateRandom,
     generateSpecialLink,
+    generateItemCompareUrl,
   };
 }());
 

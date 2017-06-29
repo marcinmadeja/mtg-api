@@ -29,6 +29,7 @@ const apiSettings = (function () {
     searchAdvanced: document.querySelector('.search__advanced'),
     selectFormats: document.querySelector('.js-select-formats'),
     advancedSelects: document.querySelectorAll('.js-advanced-selects'),
+    itemCompare: document.querySelectorAll('[data-item-compare]'),
   };
 
   function getCurrentCards() {

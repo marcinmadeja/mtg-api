@@ -113,7 +113,50 @@
                 <option value=''>Choose subtypes</option>
               </select>
             </div>                                                
-        </div>                
+        </div>
+
+        <div class="search__section">
+          <!-- power -->
+          <div class="search__item" data-item-compare="power">
+            <span class="search__name--compare search__name">Power</span>
+            <select class="f-select--short f-select" name="power-compare-oprerator">
+              <option value="">=</option>
+              <option value="lt"><</option>
+              <option value="lte"><=</option>              
+              <option value="gt">></option>
+              <option value="gte">>=</option>
+            </select>            
+            <input class="f-input f-input--short" name="power-compare" type="number" min="0" max="100">
+          </div>
+
+          <!-- toughness -->
+          <div class="search__item" data-item-compare="toughness">
+            <span class="search__name--compare search__name">Toughness</span>
+            <select class="f-select--short f-select" name="toughness-compare-oprerator">
+              <option value="">=</option>
+              <option value="lt"><</option>
+              <option value="lte"><=</option>              
+              <option value="gt">></option>
+              <option value="gte">>=</option>
+            </select>            
+            <input class="f-input f-input--short" name="toughness-compare" type="number" min="0" max="100">
+          </div>
+
+          <!-- cmc -->
+          <div class="search__item" data-item-compare="cmc">
+            <span class="search__name--compare search__name">cmc</span>
+            <select class="f-select--short f-select" name="cmc-compare-oprerator">
+              <option value="">=</option>
+              <option value="lt"><</option>
+              <option value="lte"><=</option>              
+              <option value="gt">></option>
+              <option value="gte">>=</option>
+            </select>            
+            <input class="f-input f-input--short" name="cmc-compare" type="number" min="0" max="20">
+          </div>
+
+        </div>
+      </div>
     </form>
   </div>
 

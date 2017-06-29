@@ -13,16 +13,21 @@
 
   &__name {
       margin-right: em(18px, 19px);
+      vertical-align: middle;
 
       font-size: rem(19px);
       font-weight: 500;
+
+      &--compare {
+        margin: 0 em(7px);
+      }
   }
 
   &__section {
     @include flex-center;
 
     &:not(:last-child) {
-      margin-bottom: em(22px);
+      padding-bottom: em(22px);
     }
   }
 
@@ -52,6 +57,9 @@
 
   &__advanced {
     display: none;
+
+    padding-top: em(22px);
+    border-top: 1px solid $color-border-light;
 
     &--is-active {
       display: block;
