@@ -34,9 +34,8 @@ const modal = (function () {
     modalElement.style.display = 'block';
     setTimeout(() => {
       modalElement.classList.add(settings.animationName);
+      addOverlay();
     }, 50);
-
-    addOverlay();
   }
 
   function onButtonClick(e) {
@@ -61,10 +60,9 @@ const modal = (function () {
     visibleModal.classList.remove(settings.animationName);
   
     setTimeout(() => {
-      visibleModal.style.display = 'none';    
-    }, 400);
-
-    removeOverlay();
+      visibleModal.style.display = 'none';
+      removeOverlay();  
+    }, 300);
   }
 
   function clickModalContent(e) {   
