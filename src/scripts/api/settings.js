@@ -15,7 +15,7 @@ const apiSettings = (function () {
     displayCardsAmount: 8,
     totalCount: 0,
     displayList: 'grid',
-    showDefaultImg: true,
+    showDefaultImg: false,
     advancedSearch: false,
   };  
 

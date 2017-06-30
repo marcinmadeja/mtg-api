@@ -10,7 +10,6 @@ const mtgApi = (function () {
   const { dom, list: listSettings } = apiSettings;
 
   function createList() {
-    const cards = apiSettings.getCurrentCards();
     const cardList = dom.cardsList;
     const sortSelect = dom.sort;
     const sortedCards = sort.sortElement(sortSelect);
@@ -54,6 +53,7 @@ const mtgApi = (function () {
 
   function initSearch(e) {
     if (e) e.preventDefault();
+    console.log('aaaaaaaaaa');
 
     const url = linkGenerator.generate();
     listPromise(url);
@@ -74,6 +74,10 @@ const mtgApi = (function () {
     dom.form.addEventListener('submit', initSearch);
     dom.sort.addEventListener('change', function () {
       createList(apiSettings.getCurrentCards());
+    });
+
+    dom.form.addEventListener('submit', () => {
+      console.log('xxxxxxxxx');
     });
 
     dom.displayCardsSelect.addEventListener('change', changeDisplayCards);

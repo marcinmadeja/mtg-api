@@ -57,8 +57,6 @@ const cardDetails = (function () {
     const card = apiSettings.getCurrentCards().find(item => item.id === id);
     if (!card) return false;
 
-    console.log(card);
-    
     let imgUrl = card.imageUrl || noImgDiv;
     imgUrl = listSetings.showDefaultImg ? 'img/default-card.jpg' : imgUrl;
 
