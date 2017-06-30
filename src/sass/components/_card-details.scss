@@ -1,0 +1,60 @@
+.card-details {
+  .md-modal__dialog {
+    max-width: 90%;
+    min-width: 1000px;
+  }
+
+  &__body {
+    display: flex;
+  }
+
+  &__details {
+    flex: 1;
+    margin-left: em(50px);
+    padding: 0 em(30px) 0;
+  }
+
+  &__header {
+    margin-bottom: em(20px);
+  }
+
+  &__name {
+    @extend .cards-list__name;  
+  }
+
+  &__attribute-mana {
+    @extend .cards-list__attribute-mana  
+  }  
+
+  &__mana-total {
+    @extend .cards-list__mana-total;  
+  }
+
+  &__set-rarity {
+    @extend .cards-list__set-rarity;  
+  }
+
+  &__text {
+    margin-bottom: em(15px);
+  }
+
+  &__text-label {
+    display: inline-block;
+    margin: 0 0 em(3px);
+    font-size: rem(17px);
+  }
+
+  &__list {
+    margin: 0;
+  }
+
+  &__list-item {
+    margin-bottom: em(7px);
+  }
+
+  &__list-title {
+    display: block;    
+    padding-right: em(8px);
+    font-weight: 700;
+  }
+}

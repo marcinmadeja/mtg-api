@@ -1,0 +1,19 @@
+.md-modal {  
+  &__overlay {
+    background: rgba($color-dark, .8);
+  }
+
+  &__header {
+    background: $color-dark;
+    color: $color-light;
+  }
+
+  &__btn-close {
+    @extend %transition;
+    color: $color-light;
+
+    &:hover {
+      color: $brand-color;
+    }
+  }
+}

@@ -2,6 +2,11 @@ const apiSettings = (function () {
   const form = document.querySelector('.js__search-form');
   const currentCards = [];
 
+  const cardDetails = {
+    modalId: 'modal-card-details',
+    cardClass: 'cards-list__item',
+  };
+
   const list = {
     onlyWithImg: true,
     paginationCurrentPage: 1,
@@ -45,6 +50,7 @@ const apiSettings = (function () {
   return {
     list,
     dom,
+    cardDetails,
     getCurrentCards,
     setCurrentCards,
   };

@@ -19,7 +19,7 @@ const listTemplates = (function () {
       imgUrl = listSetings.showDefaultImg ? 'img/default-card.jpg' : imgUrl;
 
       return `
-        <div class="cards-list__item cards-list__item--grid">
+        <div class="cards-list__item cards-list__item--grid" data-md-modal="${apiSettings.cardDetails.modalId}" data-card-id="${card.id}">
           <div class="cards-list__img-wrap">
             ${card.imageUrl ? `<img src="${imgUrl}" alt="${card.name}" class="cards-list__img"/>` : noImgDiv}
           </div>
@@ -58,7 +58,7 @@ const listTemplates = (function () {
 
 
       return `
-        <div class="cards-list__item cards-list__item--list">
+        <div class="cards-list__item cards-list__item--list" data-md-modal="${apiSettings.cardDetails.modalId}">
           <div class="cards-list__img-wrap">
             ${card.imageUrl ? `<img src="${imgUrl}" alt="${card.name}" class="cards-list__img"/>` : noImgDiv}
           </div>
@@ -134,6 +134,7 @@ const listTemplates = (function () {
 
   return {
     generateTemplate,
+    replaceTextShorts,
   };
 }());
 

@@ -3,6 +3,8 @@ import linkGenerator from './link-generator';
 import listTemplates from './list-templates';
 import pagination from './pagination';
 import sort from './sort';
+import modal from './../../assets/modal/modal';
+import cardDetails from './card-details';
 
 const mtgApi = (function () {
   const { dom, list: listSettings } = apiSettings;
@@ -14,6 +16,7 @@ const mtgApi = (function () {
     const sortedCards = sort.sortElement(sortSelect);
 
     cardList.innerHTML = listTemplates.generateTemplate(sortedCards);
+    cardDetails.addEventToCards();
   }
 
   function listPromise(url) {

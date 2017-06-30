@@ -81,11 +81,20 @@
   }
 
   /* list template */
-  &__item {
-    &--list {
-      @include span(12);
-      @include flex-center;
-      
+  &__item--list {
+    @include span(12);
+    @include flex-center;
+    
+    & .cards-list {
+      &__header {
+        margin-top: 0;
+      }
+
+      &__img-wrap {
+        width: em(130px);
+        min-width: em(130px);
+        height: em(183px);
+      }        
     }
   }
 
@@ -98,7 +107,5 @@
       color: red;
     }
   }
-
-
 }
 

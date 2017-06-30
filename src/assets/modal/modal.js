@@ -38,8 +38,7 @@ const modal = (function () {
     }, 50);
   }
 
-  function onButtonClick(e) {
-    e.preventDefault();
+  function onClickOpen() {
     const modalId = this.dataset[settings.triggerBtnDataset];
     openModal(modalId);
   }
@@ -47,7 +46,7 @@ const modal = (function () {
   function initAllButtons() {
     const buttons = document.querySelectorAll(`[${settings.triggerButtonData}]`);
     buttons.forEach(btn => {
-      btn.addEventListener('click', onButtonClick);
+      btn.addEventListener('click', onClickOpen);
     });
   }
 
@@ -89,6 +88,7 @@ const modal = (function () {
     init,
     closeModal,
     openModal,
+    onClickOpen,
   };
 }());
 
