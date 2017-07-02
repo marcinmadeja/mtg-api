@@ -105,11 +105,19 @@ const linkGenerator = (function () {
     return url;
   }
 
+  function generateAutocompleteUrl() {
+    const namePart = encodeURI(addName());
+    const url = `${carsdUrl}?${namePart}&pageSize=8&page1&contains=imageUrl`;
+
+    return url;
+  }
+
   return {
     generate,
     generateRandom,
     generateSpecialLink,
     generateItemCompareUrl,
+    generateAutocompleteUrl,
   };
 }());
 

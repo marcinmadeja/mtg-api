@@ -2,6 +2,11 @@ const apiSettings = (function () {
   const form = document.querySelector('.js__search-form');
   const currentCards = [];
 
+  const autoCompleteSetts = {
+    listClass: 'autocomplete__list',
+    listItemClass: 'autocomplete__list-item',
+  };
+
   const state = {
     isSearchInProgress: false,
     disableElementClass: 'js__search-element--is-disabled',
@@ -41,6 +46,7 @@ const apiSettings = (function () {
     selectFormats: document.querySelector('.js-select-formats'),
     advancedSelects: document.querySelectorAll('.js-advanced-selects'),
     itemCompare: document.querySelectorAll('[data-item-compare]'),
+    autoCompleteInputs: document.querySelectorAll('.js-autocomplete--input'),
   };
 
   function getCurrentCards() {
@@ -60,6 +66,7 @@ const apiSettings = (function () {
     getCurrentCards,
     setCurrentCards,
     state,
+    autoCompleteSetts,
   };
 }());
 

@@ -1,0 +1,37 @@
+.autocomplete {
+  width: 100%;
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  &__content {
+    position: relative;
+    z-index: 3;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+
+    background: $color-light;
+
+    text-align:left;
+    list-style: none;
+  }
+
+  &__list-item {
+    @extend %transition;
+    padding: em(5px) em(15px);
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-border-light;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background: $color-dark;
+      color: $color-light;
+    }
+   }
+}
