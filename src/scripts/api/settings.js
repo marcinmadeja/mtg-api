@@ -2,6 +2,11 @@ const apiSettings = (function () {
   const form = document.querySelector('.js__search-form');
   const currentCards = [];
 
+  const state = {
+    isSearchInProgress: false,
+    disableElementClass: 'js__search-element--is-disabled',
+  };
+
   const cardDetails = {
     modalId: 'modal-card-details',
     cardClass: 'cards-list__item',
@@ -26,6 +31,7 @@ const apiSettings = (function () {
     searchName: form.querySelectorAll('[name="search-card"]'),
     searchColorIdentity: form.querySelectorAll('[name="colorIdentity"]'),
     sort: document.querySelector('.js-sort'),
+    cardList: document.querySelector('.cards-list '),
     cardsCountWrap: document.querySelector('.cards-count'),
     cardListSection: document.querySelector('.cards-list__section'),
     displayCardsSelect: document.querySelector('.js-change-display-cards'),
@@ -53,6 +59,7 @@ const apiSettings = (function () {
     cardDetails,
     getCurrentCards,
     setCurrentCards,
+    state,
   };
 }());
 

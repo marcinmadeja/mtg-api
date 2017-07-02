@@ -66,3 +66,8 @@
     }
   }
 }
+
+.js__search-element--is-disabled {
+  pointer-events: none;
+  opacity: .6;
+}

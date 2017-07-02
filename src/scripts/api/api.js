@@ -5,9 +5,11 @@ import pagination from './pagination';
 import sort from './sort';
 import modal from './../../assets/modal/modal';
 import cardDetails from './card-details';
+import searchState from './search-state';
 
 const mtgApi = (function () {
-  const { dom, list: listSettings } = apiSettings;
+  const { dom, list: listSettings, state } = apiSettings;
+
 
   function createList() {
     const cardList = dom.cardsList;
@@ -19,7 +21,10 @@ const mtgApi = (function () {
   }
 
   function listPromise(url) {
+    if (state.isSearchInProgress) return;
+    
     const postsPromise = fetch(url);
+    searchState.searchingInProgress();
 
     postsPromise
       .then(data => { 
@@ -29,10 +34,12 @@ const mtgApi = (function () {
       })
       .then(data => {
         apiSettings.setCurrentCards(data.cards);
+        searchState.searchingEnded();
         return createList();
       })
       .catch((err) => {
         console.error(err);
+        searchState.searchingEnded();
       });
   }
 
@@ -53,7 +60,6 @@ const mtgApi = (function () {
 
   function initSearch(e) {
     if (e) e.preventDefault();
-    console.log('aaaaaaaaaa');
 
     const url = linkGenerator.generate();
     listPromise(url);
@@ -74,10 +80,6 @@ const mtgApi = (function () {
     dom.form.addEventListener('submit', initSearch);
     dom.sort.addEventListener('change', function () {
       createList(apiSettings.getCurrentCards());
-    });
-
-    dom.form.addEventListener('submit', () => {
-      console.log('xxxxxxxxx');
     });
 
     dom.displayCardsSelect.addEventListener('change', changeDisplayCards);
