@@ -24,7 +24,7 @@
 	}		
 
 	&__dialog {
-		width: 50%;
+		width: 80%;
 		max-width: 700px;
 		min-width: 320px;
 		height: auto;
@@ -35,6 +35,14 @@
 
 		transform: translateX(-50%);
 		
+		&--full {
+			transform: initial;
+			top: 0;
+			left: 0;
+			width: 100%;
+			max-width: 100%;
+		}
+
 	}
 
 	&__content {
