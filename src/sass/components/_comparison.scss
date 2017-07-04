@@ -1,0 +1,94 @@
+.comparison {
+  &__panel {
+    @extend %transition;
+    width: em(400px);
+    padding: em(10px);
+
+    background: $color-light;
+    border: 2px solid $color-dark;
+    
+    position: fixed;
+    top: 80px;
+    right: 0;
+    
+    transform: translate(100%, 0);
+
+    &--is-active {
+      transform: translate(0, 0);
+    }
+  }
+
+  &__btn-toggle {
+    @extend %reset-btn;
+
+
+    width: 50px;
+    height: 50px;
+
+    background: $color-dark;
+
+    color: $color-light;
+    line-height: 50px;
+    text-align: center;
+
+    position: absolute;
+    top: -2px;
+    left: -52px;
+  }
+
+  &__header {
+    text-align: center;
+    margin: 0 0 em(15px);
+  }
+
+  &__list {
+    @extend %reset-list;
+
+    height: em(400px);
+    overflow-y: auto;
+  }
+
+  &__list-item {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: em(15px);
+  }
+
+  &__list-title {
+    margin-left: em(20px);
+  }
+
+  &__list-img {
+    width: em(140px);
+  }
+
+  &__remove-btn {
+    @extend %reset-btn;
+    @extend %transition;
+
+    margin-left: auto;
+    margin-right: em(15px);
+
+    color: $color-dark;
+    font-size: 20px;
+
+    &:hover {
+      color: $brand-color;
+    }
+  }
+
+  &__add-btn {
+    margin-top: em(10px);
+    border-radius: 4px;
+
+    .fa {
+      margin-right: em(5px);
+    }
+  }
+
+  &__modal-dialog {
+    max-width: 100%;
+    background: #fff;
+  }
+}

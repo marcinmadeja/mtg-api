@@ -3,10 +3,9 @@ import linkGenerator from './link-generator';
 import listTemplates from './list-templates';
 import pagination from './pagination';
 import sort from './sort';
-import modal from './../../assets/modal/modal';
 import cardDetails from './card-details';
 import searchState from './search-state';
-import autoComplete from './auto-complete';
+import cardsComparison from './cards-comparison';
 
 const mtgApi = (function () {
   const { dom, list: listSettings, state } = apiSettings;
@@ -19,6 +18,7 @@ const mtgApi = (function () {
 
     cardList.innerHTML = listTemplates.generateTemplate(sortedCards);
     cardDetails.addEventToCards();
+    cardsComparison.initCardButtonEvents();
   }
 
   function listPromise(url) {

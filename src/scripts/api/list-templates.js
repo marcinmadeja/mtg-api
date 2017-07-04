@@ -1,9 +1,9 @@
 import apiSettings from './settings';
 import api from './api';
+import cardsComparison from './cards-comparison';
 
 const listTemplates = (function () {
-  const listSetings = apiSettings.list;
-  const dom = apiSettings.dom;
+  const { list: listSetings, dom, cardsComparison: comparisonSettings } = apiSettings;
 
   const msgEmptyList = 'No cards';
   const noImgDiv = `
@@ -34,6 +34,7 @@ const listTemplates = (function () {
           </header>
 
           <div class="cards-list__text">${replaceTextShorts(card.text)}</div>
+          ${cardsComparison.getAddBtn(card.id)}
         </div>`;
     }).join('');    
   }  
@@ -74,6 +75,7 @@ const listTemplates = (function () {
             </header>
 
             ${text}
+            ${cardsComparison.getAddBtn(card.id)}
           </div>
         </div>`;
     }).join(''); 

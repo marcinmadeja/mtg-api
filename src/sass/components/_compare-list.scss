@@ -1,0 +1,50 @@
+.compare-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    width: 16.666666%;
+    padding-right: em(35px);
+    margin-bottom: em(30px);
+  }
+
+  &__img {
+    display: block;
+    max-width: em(150px);
+    margin: 0 auto em(20px);
+  }
+
+  &__attribute {
+    width: 100%;
+    display: table;
+
+    margin-bottom: em(15px);
+
+    font-size: rem(14px);
+  }
+
+  &__attribute-name {
+    display: table-cell;
+
+    font-weight: 500;
+  }
+
+  &__attribute-value {
+    display: table-cell;
+    text-align: right;
+  }
+
+  &__attribute--text {
+    display: block;
+
+    & .compare-list__attribute-name {
+      display: block;
+      margin-bottom: em(10px);
+    }
+
+    & .compare-list__attribute-value {
+      display: block;
+      text-align: left;
+    }
+  }  
+}

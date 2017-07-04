@@ -2,6 +2,10 @@ const apiSettings = (function () {
   const form = document.querySelector('.js__search-form');
   const currentCards = [];
 
+  const cardsComparison = {
+    addCardClass: 'comparison__add-btn',
+  };
+
   const autoCompleteSetts = {
     listClass: 'autocomplete__list',
     listItemClass: 'autocomplete__list-item',
@@ -67,6 +71,7 @@ const apiSettings = (function () {
     setCurrentCards,
     state,
     autoCompleteSetts,
+    cardsComparison,
   };
 }());
 

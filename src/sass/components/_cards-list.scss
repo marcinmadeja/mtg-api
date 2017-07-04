@@ -1,5 +1,5 @@
 .cards-list {
-  min-height: 300px;
+  min-height: em(300px);
 
   &__img-wrap {
     width: em(223px);
@@ -10,6 +10,7 @@
 
   &__item {
     margin-bottom: em(40px);
+    position: relative;
     cursor: pointer;
 
     &--grid {

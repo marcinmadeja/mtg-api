@@ -1,12 +1,25 @@
 .btn {
+  @extend %transition;
   height: $input-height;
-  min-width: 110px;
-  padding: 0 15px;
+  min-width: em(110px);
+  padding: 0 em(15px);
 
   background: $color-dark;
   border: 1px solid $color-dark;
 
   color: $color-light;
+
+  &:hover {
+    background: $color-light;
+    color: $color-dark;
+  }
+
+  &--small {
+    height: em(30px);
+    min-width: em(110px);
+    padding: 0 em(13px);
+    font-size: rem(15px);
+  }
 }
 
 .btn-expand {

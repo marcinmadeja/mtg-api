@@ -20,5 +20,6 @@ module.exports = {
       "import/prefer-default-export": 1,
       "no-restricted-syntax" : 0,
       "max-len": 1,
+      "no-continue": 0,
     }
 }
