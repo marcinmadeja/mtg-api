@@ -79,7 +79,7 @@ const cardsComparison = (function () {
   }
 
   function addEventToCardButton(e) {
-    event.stopPropagation();
+    e.stopPropagation();
     const carId = this.dataset.cardId;
     const action = this.dataset.action;
     const currentBtnText = this.textContent;
