@@ -6,6 +6,8 @@
     min-width: em(223px);
     height: em(310px);
     background: url('../img/loading-icon.gif') center center no-repeat;
+    display: flex;
+    align-items: center;    
   }
 
   &__item {
