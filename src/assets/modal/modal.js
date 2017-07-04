@@ -45,9 +45,7 @@ const modal = (function () {
 
   function initAllButtons() {
     const buttons = document.querySelectorAll(`[${settings.triggerButtonData}]`);
-    buttons.forEach(btn => {
-      btn.addEventListener('click', onClickOpen);
-    });
+    buttons.forEach(btn => { btn.addEventListener('click', onClickOpen); });
   }
 
   function closeModal() {
@@ -70,6 +68,17 @@ const modal = (function () {
     }
   }
 
+  function initSpecificModal(modalId) {
+    const buttons = document.querySelectorAll(`[${settings.triggerButtonData}="${modalId}"]`);
+    const modalElement = document.getElementById(modalId);
+    const closeBtn = modalElement.querySelector(`.${settings.closeBtn}`);
+    if (!buttons || !modalElement || !closeBtn) return false;
+
+    buttons.forEach(button => { button.addEventListener('click', onClickOpen); });
+    modalElement.addEventListener('click', clickModalContent);
+    closeBtn.addEventListener('click', closeModal);
+  }
+
   function init() {
     if (settings.initFromStart) initAllButtons();
 
@@ -89,6 +98,7 @@ const modal = (function () {
     closeModal,
     openModal,
     onClickOpen,
+    initSpecificModal,
   };
 }());
 
