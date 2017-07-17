@@ -16,7 +16,7 @@
     @include breakpoint($phone-only) {
       margin: 0 auto;
     }
-  }
+  } 
 
   &__item {
     margin-bottom: em(40px);
