@@ -1,9 +1,11 @@
 .l-header {
-  margin-bottom: em(-141px);
-
-  &__bg {
-    padding-bottom: 30%;
-    background: url('../img/header-bg.jpg') top center/cover;
+  @include breakpoint($tablet-portrait-up) {
+    margin-bottom: em(-141px);
+    
+    &__bg {
+      padding-bottom: 30%;
+      background: url('../img/header-bg.jpg') top center/cover;
+    }
   }
 }
 

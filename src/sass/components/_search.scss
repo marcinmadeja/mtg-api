@@ -7,6 +7,17 @@
     padding: em(25px) em(30px);
   }
 
+  &__item {
+    @include breakpoint($phone-only) {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    @include breakpoint($xs-small-phone-only) {
+      flex-wrap: wrap;
+    }    
+  }
+
   &__input-name {
     width: em(576px);
   }
@@ -21,10 +32,17 @@
       &--compare {
         margin: 0 em(7px);
       }
+
+      @include breakpoint($xs-small-phone-only) {
+        margin: 0 0 10px;
+        width: 100%;
+        text-align: center;
+      }      
   }
 
   &__section {
     @include flex-center;
+    flex-wrap: wrap;
 
     &:not(:last-child) {
       padding-bottom: em(22px);
@@ -32,9 +50,19 @@
   }
 
   &__item {
-    &:not(:last-child) {
-      margin-right: em(24px);
+    @include breakpoint($phone-only-up) {
+      &:not(:last-child) {
+        margin-right: em(24px);
+      }
     }
+
+
+    @include breakpoint ($phone-only) {
+      .search__advanced & {
+        width: 100%;
+        margin: 0 0 em(20px);
+      }
+    }       
 
     &--card,
     &--colors {
@@ -42,7 +70,21 @@
     }
 
     &--extend {
-      flex: 1;
+      width: 100%; 
+
+      @include breakpoint($phone-only-up) {
+        flex: 1;
+      }
+
+      @include breakpoint($phone-only) {
+        margin-bottom: 15px;
+      }
+    }
+
+    &--card {
+      @include breakpoint($desktop-small) {
+        margin-bottom: em(15px);
+      }
     }
   }
 
@@ -62,6 +104,16 @@
 
     &--is-active {
       display: block;
+    } 
+  }
+
+  &__advanced-select  {
+    @include breakpoint($phone-only) {
+      width: 100%;
+    }
+
+    @include breakpoint($desktop-small) {
+      margin-bottom: em(15px);
     }
   }
 }

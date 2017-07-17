@@ -25,7 +25,7 @@ $input-height: 38px;
 
 /// Container's maximum width
 /// @type Length
-$max-width: 1180px !default;
+$max-width: 1200px !default;
 
 
 
@@ -55,10 +55,13 @@ $phone-only-up: 600px;
 $between-phone-table: 600px 991px;
 $between-portrait-landscape: 768px 991px;
 $tablet-portrait: max-width 767px;
+$tablet-portrait-up: 768px;
 $tablet-landscape: max-width 991px;
 $tablet-landscape-up: 992px;
 $desktop-small: max-width 1099px;
 $between-desktop-small-phone: 600px 1100px;
 $desktop-small-up: min-width 1100px;
-$desktop: max-width 1260;
-$big-desktop: max-width 1800px;
+$between-dektop-tablet: 991px 1199px;
+$desktop: max-width 1200;
+$standard-desktop-only: 1200px 1649px;
+$big-desktop: min-width 1650px;

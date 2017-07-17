@@ -1,13 +1,21 @@
 .cards-list {
   min-height: em(300px);
 
+  @include breakpoint($phone-only) {
+    text-align: center;
+  }  
+
   &__img-wrap {
     width: em(223px);
     min-width: em(223px);
     height: em(310px);
     background: url('../img/loading-icon.gif') center center no-repeat;
     display: flex;
-    align-items: center;    
+    align-items: center;
+
+    @include breakpoint($phone-only) {
+      margin: 0 auto;
+    }
   }
 
   &__item {
@@ -15,17 +23,67 @@
     position: relative;
     cursor: pointer;
 
-    &--grid {
-      @include span(3);
+    @include breakpoint($phone-only) {
+      max-width: 80%;
+      display: inline-block;
+    }
 
-      &:nth-child(4n) {
-        @include span(3 last);
-      }
+    @include breakpoint($between-phone-table) {
+      &--grid {
+        @include span(6);
 
-      &:nth-child(4n+1) {
-        clear: both;
+        &:nth-child(2n) {
+          @include span(6 last);
+        }
+
+        &:nth-child(2n+1) {
+          clear: both;
+        }
       }
-    } 
+    }
+
+
+    @include breakpoint($between-dektop-tablet) {
+      &--grid {
+        @include span(4);
+
+        &:nth-child(3n) {
+          @include span(4 last);
+        }
+
+        &:nth-child(3n+1) {
+          clear: both;
+        }
+      }
+    }    
+
+    @include breakpoint($standard-desktop-only) {
+      &--grid {
+        @include span(3);
+
+        &:nth-child(4n) {
+          @include span(3 last);
+        }
+
+        &:nth-child(4n+1) {
+          clear: both;
+        }
+      }
+    }
+
+    @include breakpoint($big-desktop) {
+      &--grid {
+        @include span(2);
+
+        &:nth-child(6n) {
+          @include span(2 last);
+        }
+
+        &:nth-child(6n+1) {
+          clear: both;
+        }
+      }
+    }
   }
 
   &__img {

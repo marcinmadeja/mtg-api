@@ -10,6 +10,10 @@ html {
   color: $color-font-base;
   font-family: $primary-font;
   font-size: 100%;
+
+  @include breakpoint($desktop-small) {
+    font-size: 90%;
+  }
 }
 
 *, *::before, *::after {
@@ -27,4 +31,11 @@ a {
 
 .container {
   @include container;
+  width: 100%;
+  padding-left: em(20px);
+  padding-right: em(20px);
+  
+  @include breakpoint($big-desktop) {
+    max-width: 90%;
+  }
 }

@@ -16,6 +16,10 @@
     &--is-active {
       transform: translate(0, 0);
     }
+
+    @include breakpoint($tablet-portrait) {
+      display: none;
+    }    
   }
 
   &__btn-toggle {
@@ -85,6 +89,10 @@
     .fa {
       margin-right: em(5px);
     }
+
+    @include breakpoint($tablet-portrait) {
+      display: none;
+    }        
   }
 
   &__modal-dialog {
